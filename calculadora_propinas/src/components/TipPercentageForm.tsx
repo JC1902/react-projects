@@ -29,15 +29,16 @@ export default function TipPercentageForm( {setTip, tip}: TipPercentageFormProps
             <h3 className="font-black text-2xl">Propina:</h3>
 
             <form>
-                {tipOptions.map( tipOptions => ( 
-                    <div key={ tipOptions.id } className="flex gap-2">
-                        <label htmlFor="{ tip.id }">{ tipOptions.label }</label>
+                {tipOptions.map( tipOption => ( 
+                    <div key={ tipOption.id } className="flex gap-2">
+                        <label htmlFor="{ tip.id }">{ tipOption.label }</label>
                         <input
-                            id={ tipOptions.id }
+                            id={ tipOption.id }
                             type="radio"
                             name="tip"
-                            value={ tipOptions.value }
+                            value={ tipOption.value }
                             onChange={ e => setTip( +e.target.value ) }
+                            checked={ tipOption.value === tip }
                         />
                     </div>
                  ) ) }
